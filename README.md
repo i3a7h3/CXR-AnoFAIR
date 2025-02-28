@@ -23,7 +23,6 @@ We propose **CXR-AnoFAIR**, a novel framework for chest radiograph anonymization
 - [02/2025] [Codebase](https://github.com/i3a7h3/CXR-AnoFAIR) for CXR-AnoFAIR released.
 - [02/2025] [Training code](https://github.com/i3a7h3/CXR-AnoFAIR) for Stable Diffusion Inpainting released.
 - [02/2025] [Training code](https://github.com/i3a7h3/CXR-AnoFAIR) for bias mitigation released.
-- [02/2025] [Evaluation code](https://github.com/i3a7h3/CXR-AnoFAIR) for CXR-AnoFAIR released.
 
 ## :hammer: Setup
 
