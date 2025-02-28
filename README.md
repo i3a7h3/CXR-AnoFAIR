@@ -111,7 +111,7 @@ accelerate launch ./train_cxr_inpaint.py \
 Run the script below for training with CXR-Fair Loss for bias mitigation. 
 
 ```bash
-export BASE_MODEL="path-to-inpainted-model"
+export BASE_MODEL="path-to-baseline-model"
 export TRAIN_DATA="path-to-training-data"
 export OUTPUT_DIR="path-to-bias-mitigated-model"
 
