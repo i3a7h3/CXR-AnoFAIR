@@ -170,21 +170,15 @@ accelerate launch ./train_bias_mitigation.py \
 
 ### Re-identification Rate
 
-Evaluate privacy protection using the Siamese Neural Network method from PriCheXy-Net:
-
-See the [PriCheXy-Net repository](https://github.com/kaipackhaeuser/PriCheXy-Net).
+Evaluate privacy protection using the Siamese Neural Network method from PriCheXy-Net: [PriCheXy-Net repository](https://github.com/kaipackhaeuser/PriCheXy-Net).
 
 ### Attribute Classification
 
-Attribute classification using the framework from AttrNzr:
-
-See the [AttrNzr repository](https://github.com/A-Big-Brain/Attribute-Neutralizer-for-medical-AI-system/tree/Fairness).
+Attribute classification using the framework from AttrNzr: [AttrNzr repository](https://github.com/A-Big-Brain/Attribute-Neutralizer-for-medical-AI-system/tree/Fairness).
 
 ### Diagnostic Preservation
 
-Evaluate clinical utility using TorchXRayVision:
-
-See the [TorchXRayVision repository](https://github.com/mlmed/torchxrayvision).
+Evaluate clinical utility using TorchXRayVision: [TorchXRayVision repository](https://github.com/mlmed/torchxrayvision).
 
 <br>
 
