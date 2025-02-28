@@ -41,35 +41,16 @@ pip install -r requirements.txt
 
 <br>
 
-## ⬇️: Disease Region Detection
+🔍 Overview of Pipeline
+Our framework consists of two main components:
 
-### 1. Pretrained Model
-1. Download the pretrained YOLOv8 model from [Google Drive](https://drive.google.com/file/d/1-0K1gMrjq0C7ssP4UDGePBr8CND4cAJC/view).
-2. Download the annotations from [Google Drive](https://drive.google.com/file/d/1zAEiTPFPky7ilQ1Ou-Kzi9sPVdvx2nnt/view)
+Stable Diffusion Inpainting: Fine-tuned to preserve diagnostic information in chest radiographs
+Bias Mitigation: Using CXR-Fair Loss to ensure demographic fairness
 
-3. Put the model under `pretrained` folder as follows:
-    ```
-    CXR-AnoFAIR
-    └── detection
-        └── yolov8
-            └── model_final.pt
-        └── dataset
-            └── annotations.coco
-    ```
-
-### 2. Disease Detection
-
-1. We use YOLOv8 for chest disease detection. The model accurately localizes abnormal regions in chest radiographs, including various pathologies such as cardiomegaly, pneumothorax, pleural effusion, and lung opacities.
-
-2. Prepare your chest X-ray images for input:
-Place your images in the input folder.
-
-```bash
-python ./detection/test_disease_detector.py
-```
-Find the output masks in `./detection/output`
-
+For the initial disease region detection, we use YOLOv8 to identify pathological areas that should be preserved during the anonymization process. This step helps maintain the diagnostic utility of the radiographs while allowing the model to focus on anonymizing non-pathological regions.
 <br>
+<br>
+
 
 ## :running_man: Train
 
