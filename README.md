@@ -8,12 +8,12 @@ This repository contains the implementation of the following paper:
 
 ## :open_book: Overview
 <!-- ![overall_structure](./assets/Fig1.png) -->
-<img src="./assets/Fig1.png" width="100%">
+<img src="./assets/fig1.svg" width="100%">
 
 **CXR-AnoFAIR** presents example results of CXR anonymization with attribute bias mitigation.
 
 <!-- ![result_examples](./assets/Fig2.png) -->
-<img src="./assets/Fig2.png" width="100%">
+<img src="./assets/fig2.svg" width="100%">
 
 We propose **CXR-AnoFAIR**, a novel framework for chest radiograph anonymization that addresses both privacy and fairness concerns. The pipeline begins with disease region detection, then applies a Stable Diffusion inpainting model guided by our multi-component CXR-Fair loss function. This loss combines **_ℒDA_**(distributional alignment loss), **_ℒSP_**(semantic preservation loss), and our proposed **_ℒCXR-DP_**(CXR diagnostic preservation loss), working alongside a LoRA adapter to efficiently control demographic attributes while preserving diagnostic information.
 
