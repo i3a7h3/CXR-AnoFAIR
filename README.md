@@ -43,8 +43,8 @@ pip install -r requirements.txt
 ## 🔍 Overview of Pipeline
 Our framework consists of two main components:
 
-Stable Diffusion Inpainting: Fine-tuned to preserve diagnostic information in chest radiographs
-Bias Mitigation: Using CXR-Fair Loss to ensure demographic fairness
+(1) Stable Diffusion Inpainting: Fine-tuned to preserve diagnostic information in chest radiographs, 
+(2) Bias Mitigation: Using CXR-Fair Loss to ensure demographic fairness
 
 For the initial disease region detection, we use YOLOv8 to identify pathological areas that should be preserved during the anonymization process. This step helps maintain the diagnostic utility of the radiographs while allowing the model to focus on anonymizing non-pathological regions.
 <br>
