@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 <br>
 
-🔍 Overview of Pipeline
+##🔍 Overview of Pipeline
 Our framework consists of two main components:
 
 Stable Diffusion Inpainting: Fine-tuned to preserve diagnostic information in chest radiographs
