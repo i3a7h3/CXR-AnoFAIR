@@ -147,9 +147,9 @@ accelerate launch ./train_bias_mitigation.py \
 
 #### **CXR-Fair Loss Components**
 
-- `--distributional_alignment_weight` Weight for the ℒ<sub>DA</sub> component
-- `--semantic_preservation_weight` Weight for the ℒ<sub>SP</sub> component
-- `--diagnostic_preservation_weight` Weight for the ℒ<sub>CXR-DP</sub> component
+- `--distributional_alignment_weight` Weight for the _ℒ<sub>DA</sub>_ component
+- `--semantic_preservation_weight` Weight for the _ℒ<sub>SP</sub>_ component
+- `--diagnostic_preservation_weight` Weight for the _ℒ<sub>CXR-DP</sub>_ component
 - `--feature_similarity_weight` Weight for feature similarity
 - `--perceptual_weight` Weight for perceptual loss
 - `--diagnostic_consistency_weight` Weight for diagnostic consistency
@@ -166,51 +166,25 @@ accelerate launch ./train_bias_mitigation.py \
 
 <br>
 
-## ✈️ Inference
-
-To run inference with our model, check out `inference.ipynb` for more details.
-
-For your dataset, change the path of the input CXR image and disease mask.
-
-<br>
-
 ## 📊 Evaluation
 
 ### Re-identification Rate
 
 Evaluate privacy protection using the Siamese Neural Network method from PriCheXy-Net:
-```bash
-python ./evaluation/eval_reidentification.py
-```
 
-For more details, see the [PriCheXy-Net repository](https://github.com/kaipackhaeuser/PriCheXy-Net).
+See the [PriCheXy-Net repository](https://github.com/kaipackhaeuser/PriCheXy-Net).
 
-### Attribute Bias Evaluation
+### Attribute Classification
 
-Quantify demographic bias reduction using the framework from AttrNzr:
-```bash
-python ./evaluation/eval_attribute_bias.py
-```
+Attribute classification using the framework from AttrNzr:
 
-For more details, see the [AttrNzr repository](https://github.com/A-Big-Brain/Attribute-Neutralizer-for-medical-AI-system/tree/Fairness).
+See the [AttrNzr repository](https://github.com/A-Big-Brain/Attribute-Neutralizer-for-medical-AI-system/tree/Fairness).
 
 ### Diagnostic Preservation
 
 Evaluate clinical utility using TorchXRayVision:
-```bash
-python ./evaluation/eval_diagnostic_preservation.py
-```
 
-For more details, see the [TorchXRayVision repository](https://github.com/mlmed/torchxrayvision).
-
-<br>
-
-## 📊 Results
-
-Our framework significantly outperforms existing methods in terms of:
-- **Anonymization effectiveness**: 27.8% reduction in re-identification rate compared to PriCheXy-Net
-- **Bias mitigation**: Significant reduction in gender and age biases while maintaining high diagnostic fidelity
-- **Image quality**: Superior generation quality with FID scores of 5.9, compared to 45.7 for the base model
+See the [TorchXRayVision repository](https://github.com/mlmed/torchxrayvision).
 
 <br>
 
@@ -221,4 +195,3 @@ We thank the authors for their great work:
 - [AttrNzr](https://github.com/A-Big-Brain/Attribute-Neutralizer-for-medical-AI-system/tree/Fairness) for attribute bias mitigation methods
 - [TorchXRayVision](https://github.com/mlmed/torchxrayvision) for CXR disease classification
 - [HuggingFace Diffusers](https://github.com/huggingface/diffusers) for the Stable Diffusion implementation
-- The authors of the [LoRA](https://github.com/microsoft/LoRA) method for efficient adaptation of pretrained models
