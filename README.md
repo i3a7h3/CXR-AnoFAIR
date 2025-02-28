@@ -191,7 +191,8 @@ See the [TorchXRayVision repository](https://github.com/mlmed/torchxrayvision).
 ## ❤️ Acknowledgements
 
 We thank the authors for their great work:
-- [PriCheXy-Net](https://github.com/kaipackhaeuser/PriCheXy-Net) for pioneering CXR anonymization techniques
+- [Fair Diffusion](https://github.com/sail-sg/finetune-fair-diffusion) for the distributional alignment techniques
 - [AttrNzr](https://github.com/A-Big-Brain/Attribute-Neutralizer-for-medical-AI-system/tree/Fairness) for attribute bias mitigation methods
+- [PriCheXy-Net](https://github.com/kaipackhaeuser/PriCheXy-Net) for pioneering CXR anonymization techniques
 - [TorchXRayVision](https://github.com/mlmed/torchxrayvision) for CXR disease classification
 - [HuggingFace Diffusers](https://github.com/huggingface/diffusers) for the Stable Diffusion implementation
