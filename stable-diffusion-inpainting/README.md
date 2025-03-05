@@ -31,7 +31,7 @@ accelerate launch ./stable-diffusion-inpainting/SD_inpainting_fine_tuning.py \
   --gradient_checkpointing \
   --mixed_precision="fp16" \
   --max_train_steps=50000 \
-  --checkpointing_steps=5000 \
+  --checkpointing_steps=5000
 ```
 
 ### **Important Args**
