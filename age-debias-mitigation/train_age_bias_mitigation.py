@@ -211,7 +211,7 @@ def parse_args(input_args=None):
     parser.add_argument(
         "--target_age_ratio",
         type=float,
-        default=0.75,
+        default=0.5,
         help="Target ratio for young age (0.0 = all old, 0.5 = balanced, 1.0 = all young)",
     )
 
