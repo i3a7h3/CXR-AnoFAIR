@@ -62,11 +62,11 @@ import torchxrayvision as xrv
 logger = get_logger(__name__)
 
 class AttributeClassifier(nn.Module):
-    """Attribute classifier for CXR images (gender) using ResNet50"""
+    """Attribute classifier for CXR images (gender)"""
     def __init__(self, pretrained_path=None):
         super().__init__()
         
-        # Initialize model using ResNet50 as in AttNzr
+        # Initialize model
         self.model = torchvision.models.resnet50(weights='IMAGENET1K_V1')
         self.model.fc = nn.Linear(2048, 2)  # 2 outputs for gender (female, male)
         
