@@ -1,21 +1,19 @@
 ### 1. Train for the Inpainting Model
 
-#### **Training with CXR Diagnostic Preservation Loss**
+#### **Training with Full Fine-tuning Approach**
 
-Our **CXR Diagnostic Preservation Loss** combines feature similarity, perceptual loss, and diagnostic consistency to ensure preservation of critical pathological information during anonymization.
+Our approach uses full fine-tuning of both U-Net and Text Encoder to adapt the Stable Diffusion Inpainting model for chest radiograph anonymization, preserving diagnostic features while removing identifying information.
 
 ___Note: It needs at least 24GB VRAM.___
 
-
 ```bash
-
 #!/bin/bash
 
 # Set environment variables for the training
 export MODEL_NAME="stabilityai/stable-diffusion-2-inpainting"
 export CXR_DATA_ROOT="path/to/chest_xray_dataset"
 export METADATA_PATH="./configs/cxr_prompt_SD_inpainting.json"
-export OUTPUT_DIR="cxr-anofair-model"
+export OUTPUT_DIR="CXR-AnoFAIR-inpainting-model"
 
 # Run the training with accelerate
 accelerate launch ./stable-diffusion-inpainting/SD_inpainting_fine_tuning.py \
@@ -40,17 +38,22 @@ accelerate launch ./stable-diffusion-inpainting/SD_inpainting_fine_tuning.py \
 
 #### **General**
 
-- `--pretrained_model_name_or_path` what model to train/initialize from
-- `--instance_data_dir` path for CXR dataset that you want to train
-- `--output_dir` where to save/log to
-- `--instance_prompt` prompt template for training
-- `--train_text_encoder` fine-tuning `text_encoder` with `unet` can give much better results
+- `--pretrained_model_name_or_path`: Base model to fine-tune from (Stable Diffusion Inpainting)
+- `--data_root`: Path to the chest X-ray dataset directory
+- `--metadata_path`: Path to the metadata JSON file containing disease, severity, and location information
+- `--output_dir`: Directory to save the trained model and logs
+- `--resolution`: Image resolution for training
+- `--train_batch_size`: Batch size per GPU
+- `--learning_rate`: Learning rate for training
+- `--max_train_steps`: Total number of training steps
 
-#### **Loss Components**
+#### **Advanced Options**
 
-- `--cxr_dp_weight` Weight for the CXR Diagnostic Preservation Loss
-- `--feature_weight` Weight for the feature similarity component
-- `--perceptual_weight` Weight for the perceptual loss component
-- `--diagnostic_weight` Weight for the diagnostic consistency component
+- `--gradient_checkpointing`: Enable gradient checkpointing to reduce memory usage
+- `--use_8bit_adam`: Use 8-bit precision for Adam optimizer to reduce memory consumption
+- `--mixed_precision="fp16"`: Use mixed precision training to improve performance
+- `--center_crop`: Enable center cropping of input images
+- `--seed`: Set random seed for reproducibility
+
 
 
