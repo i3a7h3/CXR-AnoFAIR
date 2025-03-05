@@ -67,10 +67,10 @@ class GenderAgeClassifier(nn.Module):
         super().__init__()
         
         # Initialize models using ResNet50 as in AttNzr
-        self.gender_model = torchvision.models.resnet50(pretrained=True)
+        self.gender_model = torchvision.models.resnet50(weights='IMAGENET1K_V1')
         self.gender_model.fc = nn.Linear(2048, 2)  # 2 outputs for gender
         
-        self.age_model = torchvision.models.resnet50(pretrained=True)
+        self.age_model = torchvision.models.resnet50(weights='IMAGENET1K_V1')
         self.age_model.fc = nn.Linear(2048, 2)  # 2 outputs for age
         
         # Load pretrained weights
@@ -84,15 +84,6 @@ class GenderAgeClassifier(nn.Module):
         self.gender_model.eval()
         self.age_model.eval()
         
-        # Use the same transforms as in AttNzr
-        self.transforms = self._get_transforms()
-        
-    def _get_transforms(self):
-        """Get transforms as defined in AttNzr's support_net.py"""
-        return transforms.Compose([
-            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-        ])
-    
     def forward_gender(self, x):
         return self.gender_model(x)
     
