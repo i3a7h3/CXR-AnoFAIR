@@ -54,7 +54,8 @@ For the initial disease region detection, we use YOLOv8 to identify pathological
 
 ## :running_man: Train
 
-|------------|-----------------|
+| | |
+|---|---|
 | [(1)Stable-Diffusion-Inpainting](Stable-Diffusion-Inpainting/) | Fine-tune text encoder and U-Net to preserve diagnostic information in chest radiographs. |
 | [(2-1)gender-debias-mitigation](gender-debias-mitigation/) | Finetune prompt LoRA on text encoder U-Net to jointly debias binary gender, to a perfectly balanced distribtion. |
 | [(2-2)age-debias-mitigation](age-debias-mitigation/) | Finetune LoRA on text encoder U-Net to jointly debias binary age, to a perfectly balanced distribtion. |
