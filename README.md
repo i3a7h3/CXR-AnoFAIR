@@ -70,7 +70,7 @@ For the initial disease region detection, we use YOLOv8 to identify pathological
 ### Bias Mitigation
 Evaluate the effectiveness of demographic bias mitigation, we provide a script that evaluaties and analyzes the distribution of gender and age attributes:
 ```bash
-python evaluate_bias_mitiagation.py \
+python ./evaluate_bias_mitiagation.py \
     --gender_classifier_path /path/to/gender_classifier.pt \
     --age_classifier_path /path/to/age_classifier.pt \
     --images_dir /path/to/images \
@@ -96,7 +96,7 @@ Evaluate clinical utility using TorchXRayVision: [TorchXRayVision repository](ht
 
 ## ✈️ Inference
 
-To inference, Checkout - `inference.py` for mode details.
+To inference, Checkout - `./inference.py` for mode details.
 
 
 For your dataset, change the path of the CXR-image and CXR-mask.
