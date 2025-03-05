@@ -1,4 +1,4 @@
-### 2-1. Train for Age Bias Mitigation
+### 2-2. Train for Age Bias Mitigation
 
 Run the script below for training with CXR-Fair Loss for age bias mitigation. 
 
