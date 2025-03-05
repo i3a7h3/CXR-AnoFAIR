@@ -23,7 +23,7 @@ export PROMPT_TEMPLATES_PATH="./configs/cxr_prompt_templates.json"
 accelerate launch \
   --mixed_precision="fp16" \
   --multi_gpu \
-  train_age_bias_mitigation.py \
+  ./age-debias-mitigation/train_age_bias_mitigation.py \
   --pretrained_model_name_or_path=$BASE_MODEL \
   --train_data_dir=$TRAIN_DATA_DIR \
   --output_dir=$OUTPUT_DIR \
