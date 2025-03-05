@@ -53,8 +53,9 @@ For the initial disease region detection, we use YOLOv8 to identify pathological
 
 
 ## :running_man: Train
+Our training experiments are organized into several folders, each containing detailed instructions, optimized hyperparameters, and experiment-specific code. For each experiment, refer to the corresponding folder for information about training procedures, parameter settings, and evaluation methods.
 
-| Experiment Name | Description |
+| Train Table | Description |
 |---|---|
 | [(1) stable-diffusion-inpainting](stable-diffusion-inpainting/) | Fine-tune text encoder and U-Net to preserve diagnostic information in chest radiographs. |
 | [(2-1) gender-debias-mitigation](gender-debias-mitigation/) | Finetune prompt LoRA on text encoder U-Net to jointly debias binary gender, to a perfectly balanced distribtion. |
