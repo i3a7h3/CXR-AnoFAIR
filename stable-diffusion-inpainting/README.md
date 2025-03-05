@@ -8,28 +8,32 @@ ___Note: It needs at least 24GB VRAM.___
 
 
 ```bash
-export MODEL_NAME="stabilityai/stable-diffusion-2-inpainting"
-export INSTANCE_DIR="path-to-cxr-dataset"
-export OUTPUT_DIR="path-to-save-model"
 
-accelerate launch ./train_cxr_inpaint.py \
-  --pretrained_model_name_or_path=$MODEL_NAME  \
-  --train_text_encoder \
-  --instance_data_dir=$INSTANCE_DIR \
+#!/bin/bash
+
+# Set environment variables for the training
+export MODEL_NAME="stabilityai/stable-diffusion-2-inpainting"
+export CXR_DATA_ROOT="path/to/chest_xray_dataset"
+export METADATA_PATH="./configs/cxr_prompt_SD_inpainting.json"
+export OUTPUT_DIR="cxr-anofair-model"
+
+# Run the training with accelerate
+accelerate launch ./stable-diffusion-inpainting/SD_inpainting_fine_tuning.py \
+  --pretrained_model_name_or_path=$MODEL_NAME \
+  --data_root=$CXR_DATA_ROOT \
+  --metadata_path=$METADATA_PATH \
   --output_dir=$OUTPUT_DIR \
-  --cxr_dp_weight=1.0 \
-  --feature_weight=0.3 \
-  --perceptual_weight=0.3 \
-  --diagnostic_weight=0.4 \
-  --instance_prompt="a chest x-ray showing [disease]" \
   --resolution=512 \
-  --train_batch_size=1 \
+  --train_batch_size=4 \
+  --learning_rate=5e-5 \
+  --gradient_accumulation_steps=1 \
+  --lr_scheduler="constant" \
+  --lr_warmup_steps=500 \
   --use_8bit_adam \
   --gradient_checkpointing \
-  --learning_rate=5e-5 \
-  --lr_scheduler="constant" \
-  --lr_warmup_steps=0 \
-  --max_train_steps=50000
+  --mixed_precision="fp16" \
+  --max_train_steps=50000 \
+  --checkpointing_steps=5000 \
 ```
 
 ### **Important Args**
