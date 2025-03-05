@@ -17,7 +17,7 @@ export OUTPUT_DIR="./outputs"
 export ATTRIBUTE_CLASSIFIER_PATH="./models/cxr_gender_classifier.pt"
 
 # Set path for prompt templates
-export PROMPT_TEMPLATES_PATH="./configs/cxr_prompt_templates.json"
+export PROMPT_TEMPLATES_PATH="./configs/cxr_prompt_bias_mitigation.json"
 
 # Run the training with appropriate parameters
 accelerate launch \
