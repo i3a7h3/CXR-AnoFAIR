@@ -65,18 +65,24 @@ class AgeClassifier(nn.Module):
     """Age classifier for CXR images (young vs old - threshold at 60 years)"""
     def __init__(self, pretrained_path=None):
         super().__init__()
-        # Base model using MobileNetV3Large
-        self.model = torchvision.models.mobilenet_v3_large(pretrained=True)
-        # Modify the classifier for binary classification (young, old)
-        self.model.classifier[3] = nn.Linear(1280, 2)  # 2 outputs for age (young < 60, old ≥ 60)
         
+        # Initialize model using ResNet50 as in AttNzr
+        self.model = torchvision.models.resnet50(weights='IMAGENET1K_V1')
+        self.model.fc = nn.Linear(2048, 2)  # 2 outputs for age (young < 60, old ≥ 60)
+        
+        # Load pretrained weights
         if pretrained_path is not None and os.path.exists(pretrained_path):
             self.model.load_state_dict(torch.load(pretrained_path))
         
+        # Set to evaluation mode
         self.model.eval()
         
     def forward(self, x):
         return self.model(x)
+    
+    # Add this for consistency with the gender-age version
+    def forward_age(self, x):
+        return self.forward(x)
 
 class PromptsDataset(torch.utils.data.Dataset):
     """Simple dataset for prompts"""
