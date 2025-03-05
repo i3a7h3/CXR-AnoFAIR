@@ -63,6 +63,7 @@ For the initial disease region detection, we use YOLOv8 to identify pathological
 
 
 <br>
+<br>
 
 ## 📊 Evaluation
 
@@ -89,6 +90,16 @@ Attribute classification using the framework from AttrNzr: [AttrNzr repository](
 ### Diagnostic Preservation
 
 Evaluate clinical utility using TorchXRayVision: [TorchXRayVision repository](https://github.com/mlmed/torchxrayvision).
+
+<br>
+<br>
+
+## ✈️ Inference
+
+To inference, Checkout - `inference.py` for mode details.
+
+
+For your dataset, change the path of the CXR-image and CXR-mask.
 
 <br>
 
