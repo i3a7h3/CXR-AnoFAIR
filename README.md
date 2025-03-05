@@ -62,120 +62,21 @@ For the initial disease region detection, we use YOLOv8 to identify pathological
 | [(2-3) gender-age-debias-mitigation](gender-age-debias-mitigation/) | Finetune LoRA on text encoder U-Net to jointly debias binary gender and age, to a perfectly balanced distribtion. |
 
 
-### 1. Train for the Inpainting Model
-
-#### **Training with CXR Diagnostic Preservation Loss**
-
-Our **CXR Diagnostic Preservation Loss** combines feature similarity, perceptual loss, and diagnostic consistency to ensure preservation of critical pathological information during anonymization.
-
-___Note: It needs at least 24GB VRAM.___
-
-
-```bash
-export MODEL_NAME="stabilityai/stable-diffusion-2-inpainting"
-export INSTANCE_DIR="path-to-cxr-dataset"
-export OUTPUT_DIR="path-to-save-model"
-
-accelerate launch ./train_cxr_inpaint.py \
-  --pretrained_model_name_or_path=$MODEL_NAME  \
-  --train_text_encoder \
-  --instance_data_dir=$INSTANCE_DIR \
-  --output_dir=$OUTPUT_DIR \
-  --cxr_dp_weight=1.0 \
-  --feature_weight=0.3 \
-  --perceptual_weight=0.3 \
-  --diagnostic_weight=0.4 \
-  --instance_prompt="a chest x-ray showing [disease]" \
-  --resolution=512 \
-  --train_batch_size=1 \
-  --use_8bit_adam \
-  --gradient_checkpointing \
-  --learning_rate=5e-5 \
-  --lr_scheduler="constant" \
-  --lr_warmup_steps=0 \
-  --max_train_steps=50000
-```
-
-### **Important Args**
-
-#### **General**
-
-- `--pretrained_model_name_or_path` what model to train/initialize from
-- `--instance_data_dir` path for CXR dataset that you want to train
-- `--output_dir` where to save/log to
-- `--instance_prompt` prompt template for training
-- `--train_text_encoder` fine-tuning `text_encoder` with `unet` can give much better results
-
-#### **Loss Components**
-
-- `--cxr_dp_weight` Weight for the CXR Diagnostic Preservation Loss
-- `--feature_weight` Weight for the feature similarity component
-- `--perceptual_weight` Weight for the perceptual loss component
-- `--diagnostic_weight` Weight for the diagnostic consistency component
-
-
-### 2. Train for Bias Mitigation
-
-Run the script below for training with CXR-Fair Loss for bias mitigation. 
-
-```bash
-export BASE_MODEL="path-to-baseline-model"
-export TRAIN_DATA="path-to-training-data"
-export OUTPUT_DIR="path-to-bias-mitigated-model"
-
-accelerate launch ./train_bias_mitigation.py \
-  --pretrained_model_name_or_path=$BASE_MODEL \
-  --train_data_dir=$TRAIN_DATA \
-  --output_dir=$OUTPUT_DIR \
-  --mixed_precision="fp16" \
-  --train_batch_size=4 \
-  --gradient_accumulation_steps=2 \
-  --max_train_steps=10000 \
-  --checkpointing_steps=1000 \
-  --learning_rate=1e-5 \
-  --distributional_alignment_weight=1.0 \
-  --semantic_preservation_weight=1.0 \
-  --diagnostic_preservation_weight=1.0 \
-  --feature_similarity_weight=0.3 \
-  --perceptual_weight=0.3 \
-  --diagnostic_consistency_weight=0.4 \
-  --gradient_checkpointing \
-  --use_8bit_adam \
-  --lora_rank=8 \
-  --resolution=512 \
-  --seed="0"
-```
-
-### Important Args
-
-#### **General**
-
-- `--pretrained_model_name_or_path` what model to train/initialize from
-- `--output_dir` where to save/log to
-- `--seed` training seed (not set by default)
-
-#### **CXR-Fair Loss Components**
-
-- `--distributional_alignment_weight` Weight for the _ℒ<sub>DA</sub>_ component
-- `--semantic_preservation_weight` Weight for the _ℒ<sub>SP</sub>_ component
-- `--diagnostic_preservation_weight` Weight for the _ℒ<sub>CXR-DP</sub>_ component
-- `--feature_similarity_weight` Weight for feature similarity
-- `--perceptual_weight` Weight for perceptual loss
-- `--diagnostic_consistency_weight` Weight for diagnostic consistency
-
-#### **Optimizers/learning rates**
-
-- `--max_train_steps` How many train steps to take
-- `--gradient_accumulation_steps` Gradient accumulation for larger batch size
-- `--train_batch_size` Batch size per GPU
-- `--checkpointing_steps` How often to save model
-- `--gradient_checkpointing` For memory optimization
-- `--learning_rate` Learning rate
-- `--lora_rank` LoRA adapter rank
-
 <br>
 
 ## 📊 Evaluation
+
+### Bias Mitigation
+Evaluate the effectiveness of demographic bias mitigation, we provide a script that evaluaties and analyzes the distribution of gender and age attributes:
+```bash
+python evaluate_bias_mitiagation.py \
+    --gender_classifier_path /path/to/gender_classifier.pt \
+    --age_classifier_path /path/to/age_classifier.pt \
+    --images_dir /path/to/images \
+    --save_dir ./results \
+    --target_gender_ratio 0.5 \
+    --target_age_ratio 0.5
+```
 
 ### Re-identification Rate
 
