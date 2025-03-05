@@ -62,25 +62,37 @@ import torchxrayvision as xrv
 logger = get_logger(__name__)
 
 class GenderAgeClassifier(nn.Module):
-    """Combined classifier for CXR images (gender and age)"""
+    """Combined classifier for CXR images based on AttNzr's prediction approach"""
     def __init__(self, gender_path=None, age_path=None):
         super().__init__()
-        # Base model using MobileNetV3Large
-        self.gender_model = torchvision.models.mobilenet_v3_large(pretrained=True)
-        self.gender_model.classifier[3] = nn.Linear(1280, 2)  # 2 outputs for gender (female, male)
         
-        self.age_model = torchvision.models.mobilenet_v3_large(pretrained=True)
-        self.age_model.classifier[3] = nn.Linear(1280, 2)  # 2 outputs for age (young < 60, old ≥ 60)
+        # Initialize models using ResNet50 as in AttNzr
+        self.gender_model = torchvision.models.resnet50(pretrained=True)
+        self.gender_model.fc = nn.Linear(2048, 2)  # 2 outputs for gender
         
+        self.age_model = torchvision.models.resnet50(pretrained=True)
+        self.age_model.fc = nn.Linear(2048, 2)  # 2 outputs for age
+        
+        # Load pretrained weights
         if gender_path is not None and os.path.exists(gender_path):
             self.gender_model.load_state_dict(torch.load(gender_path))
         
         if age_path is not None and os.path.exists(age_path):
             self.age_model.load_state_dict(torch.load(age_path))
         
+        # Set to evaluation mode
         self.gender_model.eval()
         self.age_model.eval()
         
+        # Use the same transforms as in AttNzr
+        self.transforms = self._get_transforms()
+        
+    def _get_transforms(self):
+        """Get transforms as defined in AttNzr's support_net.py"""
+        return transforms.Compose([
+            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+        ])
+    
     def forward_gender(self, x):
         return self.gender_model(x)
     
