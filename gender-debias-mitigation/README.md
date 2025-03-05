@@ -69,6 +69,10 @@ accelerate launch \
 - `--perceptual_weight` Weight for perceptual loss
 - `--diagnostic_consistency_weight` Weight for diagnostic consistency
 
+#### **Target Distribution**
+
+- `target_gender_ratio` Target ratio for male gender (0.0 = all female, 0.5 = balanced, 1.0 = all male)
+
 #### **Optimizers/learning rates**
 
 - `--max_train_steps` How many train steps to take
