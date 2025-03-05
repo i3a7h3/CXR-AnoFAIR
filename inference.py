@@ -18,7 +18,7 @@ sys.path.append(os.path.join(os.getcwd(), "GroundingDINO"))
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 sd_pipe = StableDiffusionInpaintPipeline.from_pretrained(
-    "CXR-AnoFAIR-inpainting-model",  # Base CXR-inpainting model
+    "./CXR-AnoFAIR-inpainting-model",  # Base CXR-inpainting model
     torch_dtype=torch.float16,
     safety_checker=None,
 ).to(device)
