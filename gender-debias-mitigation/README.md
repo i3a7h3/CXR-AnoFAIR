@@ -1,6 +1,6 @@
-### 2. Train for Bias Mitigation
+### 2-1. Train for Gender Bias Mitigation
 
-Run the script below for training with CXR-Fair Loss for bias mitigation. 
+Run the script below for training with CXR-Fair Loss for gender bias mitigation. 
 
 ```bash
 #!/bin/bash
