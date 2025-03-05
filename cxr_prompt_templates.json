@@ -1,0 +1,44 @@
+{
+    "prompt_templates_train": [
+      "A chest X-ray showing No Finding.",
+      "A chest X-ray showing {disease}.",
+      "A chest X-ray showing {severity} {disease} in the {lung_location}."
+    ],
+    "prompt_templates_test": [
+      "A chest X-ray showing No Finding.",
+      "A chest X-ray showing {disease}.",
+      "A chest X-ray showing {severity} {disease} in the {lung_location}."
+    ],
+    "train_diseases": [
+      "No Finding", 
+      "Pneumonia", 
+      "Effusion", 
+      "Cardiomegaly", 
+      "Atelectasis", 
+      "Tuberculosis", 
+      "Edema",
+      "Infiltration",
+      "Mass",
+      "Nodule",
+      "Pneumothorax"
+    ],
+    "severities": [
+      "mild", 
+      "moderate", 
+      "severe"
+    ],
+    "lung_locations": [
+      "left lower lobe", 
+      "right lower lobe", 
+      "left upper lobe", 
+      "right upper lobe", 
+      "bilateral lungs", 
+      "hilar region"
+    ],
+    "validation_diseases": [
+      "No Finding", 
+      "Pneumonia", 
+      "Effusion", 
+      "Cardiomegaly"
+    ]
+}
