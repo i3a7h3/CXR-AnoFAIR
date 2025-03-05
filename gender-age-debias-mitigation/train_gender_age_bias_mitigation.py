@@ -66,7 +66,7 @@ class GenderAgeClassifier(nn.Module):
     def __init__(self, gender_path=None, age_path=None):
         super().__init__()
         
-        # Initialize models using ResNet50 as in AttNzr
+        # Initialize models
         self.gender_model = torchvision.models.resnet50(weights='IMAGENET1K_V1')
         self.gender_model.fc = nn.Linear(2048, 2)  # 2 outputs for gender
         
