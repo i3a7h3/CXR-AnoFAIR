@@ -1,0 +1,366 @@
+{
+    "_comments": {
+      "section1": "NORMAL CASES",
+      "section2": "PNEUMONIA CASES",
+      "section3": "TUBERCULOSIS CASES",
+      "section4": "PLEURAL EFFUSION CASES",
+      "section5": "CARDIOMEGALY CASES",
+      "section6": "PNEUMOTHORAX CASES",
+      "section7": "ATELECTASIS CASES",
+      "section8": "LUNG NODULE CASES",
+      "section9": "LUNG MASS CASES",
+      "section10": "PULMONARY EDEMA CASES",
+      "section11": "EMPHYSEMA CASES",
+      "section12": "PULMONARY FIBROSIS CASES",
+      "section13": "CONSOLIDATION CASES",
+      "section14": "PLEURAL THICKENING CASES",
+      "section15": "INFILTRATION CASES",
+      "section16": "HIATAL HERNIA CASES",
+      "section17": "COMBINED PATHOLOGIES"
+    },
+    "_generalNotes": "This is a comprehensive template that you can further customize. You can: 1. Add more disease categories such as 'bronchiectasis', 'lung cancer', etc. 2. Expand severity descriptions with condition-specific terms 3. Add more detailed anatomical locations 4. Include additional metadata fields if needed. The prompt generation logic in the code will automatically select the appropriate template based on the available metadata fields: - Template 1: For normal cases ('normal' or 'no finding') - Template 3: When both severity and location are provided - Template 2: For all other cases (disease only or disease with partial metadata)",
+    
+    "normal_001.jpg": {
+      "disease": "no finding"
+    },
+    "normal_002.jpg": {
+      "disease": "normal"
+    },
+    
+    "pneumonia_001.jpg": {
+      "disease": "pneumonia",
+      "severity": "mild",
+      "location": "right lower lobe"
+    },
+    "pneumonia_002.jpg": {
+      "disease": "pneumonia",
+      "severity": "moderate",
+      "location": "left lower lobe"
+    },
+    "pneumonia_003.jpg": {
+      "disease": "pneumonia",
+      "severity": "severe",
+      "location": "bilateral"
+    },
+    "pneumonia_004.jpg": {
+      "disease": "pneumonia",
+      "severity": "extensive",
+      "location": "right middle and lower lobes"
+    },
+    "pneumonia_005.jpg": {
+      "disease": "pneumonia",
+      "_comment": "No severity or location, will use Template 2"
+    },
+    
+    "tb_001.jpg": {
+      "disease": "tuberculosis",
+      "severity": "active",
+      "location": "bilateral upper lobes"
+    },
+    "tb_002.jpg": {
+      "disease": "tuberculosis",
+      "severity": "cavitary",
+      "location": "right upper lobe"
+    },
+    "tb_003.jpg": {
+      "disease": "tuberculosis",
+      "severity": "miliary",
+      "location": "diffuse"
+    },
+    "tb_004.jpg": {
+      "disease": "tuberculosis",
+      "severity": "latent",
+      "location": "apical"
+    },
+    "tb_005.jpg": {
+      "disease": "tuberculosis",
+      "_comment": "No severity or location, will use Template 2"
+    },
+    
+    "effusion_001.jpg": {
+      "disease": "pleural effusion",
+      "severity": "small",
+      "location": "right"
+    },
+    "effusion_002.jpg": {
+      "disease": "pleural effusion",
+      "severity": "moderate",
+      "location": "left"
+    },
+    "effusion_003.jpg": {
+      "disease": "pleural effusion",
+      "severity": "large",
+      "location": "bilateral"
+    },
+    "effusion_004.jpg": {
+      "disease": "pleural effusion",
+      "severity": "loculated",
+      "location": "right costophrenic angle"
+    },
+    "effusion_005.jpg": {
+      "disease": "pleural effusion",
+      "_comment": "No severity or location, will use Template 2"
+    },
+    
+    "cardiomegaly_001.jpg": {
+      "disease": "cardiomegaly",
+      "severity": "mild",
+      "_comment": "No location as it's a cardiac condition, will use Template 2"
+    },
+    "cardiomegaly_002.jpg": {
+      "disease": "cardiomegaly",
+      "severity": "moderate"
+    },
+    "cardiomegaly_003.jpg": {
+      "disease": "cardiomegaly",
+      "severity": "severe"
+    },
+    "cardiomegaly_004.jpg": {
+      "disease": "cardiomegaly"
+    },
+    
+    "pneumothorax_001.jpg": {
+      "disease": "pneumothorax",
+      "severity": "small",
+      "location": "right"
+    },
+    "pneumothorax_002.jpg": {
+      "disease": "pneumothorax",
+      "severity": "moderate",
+      "location": "left"
+    },
+    "pneumothorax_003.jpg": {
+      "disease": "pneumothorax",
+      "severity": "large",
+      "location": "right"
+    },
+    "pneumothorax_004.jpg": {
+      "disease": "pneumothorax",
+      "severity": "tension",
+      "location": "left"
+    },
+    "pneumothorax_005.jpg": {
+      "disease": "pneumothorax"
+    },
+    
+    "atelectasis_001.jpg": {
+      "disease": "atelectasis",
+      "severity": "subsegmental",
+      "location": "right lower lobe"
+    },
+    "atelectasis_002.jpg": {
+      "disease": "atelectasis",
+      "severity": "segmental",
+      "location": "left lower lobe"
+    },
+    "atelectasis_003.jpg": {
+      "disease": "atelectasis",
+      "severity": "lobar",
+      "location": "right upper lobe"
+    },
+    "atelectasis_004.jpg": {
+      "disease": "atelectasis",
+      "severity": "complete",
+      "location": "left lung"
+    },
+    "atelectasis_005.jpg": {
+      "disease": "atelectasis"
+    },
+    
+    "nodule_001.jpg": {
+      "disease": "nodule",
+      "severity": "solitary",
+      "location": "right upper lobe"
+    },
+    "nodule_002.jpg": {
+      "disease": "nodule",
+      "severity": "multiple",
+      "location": "bilateral"
+    },
+    "nodule_003.jpg": {
+      "disease": "nodule",
+      "severity": "calcified",
+      "location": "right hilum"
+    },
+    "nodule_004.jpg": {
+      "disease": "nodule",
+      "severity": "spiculated",
+      "location": "left lower lobe"
+    },
+    "nodule_005.jpg": {
+      "disease": "nodule"
+    },
+    
+    "mass_001.jpg": {
+      "disease": "mass",
+      "severity": "large",
+      "location": "right hilum"
+    },
+    "mass_002.jpg": {
+      "disease": "mass",
+      "severity": "cavitary",
+      "location": "left upper lobe"
+    },
+    "mass_003.jpg": {
+      "disease": "mass",
+      "severity": "peripheral",
+      "location": "right lower lobe"
+    },
+    "mass_004.jpg": {
+      "disease": "mass"
+    },
+    
+    "edema_001.jpg": {
+      "disease": "pulmonary edema",
+      "severity": "mild",
+      "location": "bilateral"
+    },
+    "edema_002.jpg": {
+      "disease": "pulmonary edema",
+      "severity": "moderate",
+      "location": "perihilar"
+    },
+    "edema_003.jpg": {
+      "disease": "pulmonary edema",
+      "severity": "severe",
+      "location": "diffuse"
+    },
+    "edema_004.jpg": {
+      "disease": "pulmonary edema"
+    },
+    
+    "emphysema_001.jpg": {
+      "disease": "emphysema",
+      "severity": "centrilobular",
+      "location": "upper lobes"
+    },
+    "emphysema_002.jpg": {
+      "disease": "emphysema",
+      "severity": "panlobular",
+      "location": "diffuse"
+    },
+    "emphysema_003.jpg": {
+      "disease": "emphysema",
+      "severity": "paraseptal",
+      "location": "bilateral apical"
+    },
+    "emphysema_004.jpg": {
+      "disease": "emphysema",
+      "severity": "bullous",
+      "location": "right upper lobe"
+    },
+    "emphysema_005.jpg": {
+      "disease": "emphysema"
+    },
+    
+    "fibrosis_001.jpg": {
+      "disease": "pulmonary fibrosis",
+      "severity": "early",
+      "location": "basal"
+    },
+    "fibrosis_002.jpg": {
+      "disease": "pulmonary fibrosis",
+      "severity": "moderate",
+      "location": "peripheral"
+    },
+    "fibrosis_003.jpg": {
+      "disease": "pulmonary fibrosis",
+      "severity": "advanced",
+      "location": "bilateral lower lobes"
+    },
+    "fibrosis_004.jpg": {
+      "disease": "pulmonary fibrosis",
+      "severity": "honeycomb",
+      "location": "subpleural"
+    },
+    "fibrosis_005.jpg": {
+      "disease": "pulmonary fibrosis"
+    },
+    
+    "consolidation_001.jpg": {
+      "disease": "consolidation",
+      "severity": "focal",
+      "location": "right middle lobe"
+    },
+    "consolidation_002.jpg": {
+      "disease": "consolidation",
+      "severity": "multifocal",
+      "location": "bilateral"
+    },
+    "consolidation_003.jpg": {
+      "disease": "consolidation",
+      "severity": "extensive",
+      "location": "left lower lobe"
+    },
+    "consolidation_004.jpg": {
+      "disease": "consolidation"
+    },
+    
+    "pleural_thickening_001.jpg": {
+      "disease": "pleural thickening",
+      "severity": "focal",
+      "location": "right apex"
+    },
+    "pleural_thickening_002.jpg": {
+      "disease": "pleural thickening",
+      "severity": "diffuse",
+      "location": "bilateral"
+    },
+    "pleural_thickening_003.jpg": {
+      "disease": "pleural thickening",
+      "severity": "calcified",
+      "location": "left lower zone"
+    },
+    "pleural_thickening_004.jpg": {
+      "disease": "pleural thickening"
+    },
+    
+    "infiltration_001.jpg": {
+      "disease": "infiltration",
+      "severity": "patchy",
+      "location": "bilateral"
+    },
+    "infiltration_002.jpg": {
+      "disease": "infiltration",
+      "severity": "diffuse",
+      "location": "perihilar"
+    },
+    "infiltration_003.jpg": {
+      "disease": "infiltration",
+      "severity": "reticular",
+      "location": "bilateral bases"
+    },
+    "infiltration_004.jpg": {
+      "disease": "infiltration"
+    },
+    
+    "hernia_001.jpg": {
+      "disease": "hiatal hernia",
+      "severity": "small",
+      "location": "posterior mediastinum"
+    },
+    "hernia_002.jpg": {
+      "disease": "hiatal hernia",
+      "severity": "large",
+      "location": "posterior mediastinum"
+    },
+    "hernia_003.jpg": {
+      "disease": "hiatal hernia"
+    },
+    
+    "combined_001.jpg": {
+      "disease": "pneumonia with pleural effusion",
+      "severity": "moderate",
+      "location": "right lung with right effusion"
+    },
+    "combined_002.jpg": {
+      "disease": "tuberculosis with pneumothorax",
+      "severity": "active",
+      "location": "left upper lobe with left pneumothorax"
+    },
+    "combined_003.jpg": {
+      "disease": "cardiomegaly with pulmonary edema",
+      "severity": "moderate to severe",
+      "location": "bilateral"
+    }
+  }
