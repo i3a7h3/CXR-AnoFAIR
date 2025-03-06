@@ -119,6 +119,7 @@ torch==2.1.2
 torch_xla==2.1.0
 torchsde==0.2.6
 torchvision==0.16.2
+torchxrayvision==1.1.0
 tqdm==4.66.1
 transformers==4.36.2
 triton==2.1.0
