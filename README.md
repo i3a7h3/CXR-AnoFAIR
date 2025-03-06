@@ -53,7 +53,7 @@ For the initial disease region detection, we use YOLOv8 to identify pathological
 
 
 ## :running_man: Train
-Our training experiments are organized into several folders, each containing detailed instructions, optimized hyperparameters, and experiment-specific code. For each experiment, refer to the corresponding folder for information about training procedures, parameter settings, and evaluation methods.
+Our training experiments are organized into several folders, each containing detailed instructions, **_optimized hyperparameters_**, and **_experiment-specific code_**. For each experiment, refer to the corresponding folder for information about training procedures, parameter settings, and evaluation methods.
 
 | Train Table | Description |
 |---|---|
