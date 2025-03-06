@@ -26,6 +26,7 @@ import glob
 from PIL import Image, ImageOps, ImageDraw, ImageFont
 from torchvision import transforms
 import torchvision
+import torchxrayvision as xrv
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
