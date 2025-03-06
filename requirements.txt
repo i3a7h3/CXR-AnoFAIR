@@ -71,7 +71,6 @@ nvidia-nccl-cu12==2.18.1
 nvidia-nvjitlink-cu12==12.4.99
 nvidia-nvtx-cu12==12.1.105
 omegaconf==2.3.0
-OmegaConf==2.3.0
 onnx==1.15.0
 onnx_graphsurgeon==0.0.1.dev5
 onnxruntime-gpu==1.17.1
